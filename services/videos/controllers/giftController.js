@@ -24,14 +24,14 @@ exports.sendGift = async (req, res) => {
 
     // Step 1: Deduct from sender's wallet
     await axios.put(
-      `http://localhost:4000/api/auth/wallet/deduct`,
+      `https://boom-app-backend-production.up.railway.app/api/auth/wallet/deduct`,
       { amount },
       { headers: { Authorization: req.headers.authorization } }
     );
 
     // Step 2: Credit to creator's wallet
     await axios.put(
-      `http://localhost:4000/api/auth/users/${receiverId}/wallet/add`,
+      `https://boom-app-backend-production.up.railway.app/api/auth/users/${receiverId}/wallet/add`,
       { amount },
       { headers: { Authorization: req.headers.authorization } }
     );
